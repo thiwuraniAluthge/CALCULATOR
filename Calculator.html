@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator Project</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #f4f4f4;
+                font-family: Arial, sans-serif;
+            }
+            .calculator {
+                background-color: #222;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            }
+            .title {
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+                color: white;
+                margin-bottom: 15px;
+            }
+            input[type="text"] {
+                width: calc(100% - 20px);
+                height: 50px;
+                text-align: right;
+                font-size: 20px;
+                border: none;
+                border-radius: 5px;
+                background: #fff;
+                padding: 10px;
+                margin-bottom: 10px;
+                margin-left: 5px;
+            }
+            table {
+                width: 100%;
+            }
+            input[type="button"] {
+                width: 100%;
+                height: 50px;
+                font-size: 18px;
+                font-weight: bold;
+                border: none;
+                margin: 5px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            input[type="button"]:hover {
+                opacity: 0.8;
+            }
+            .operator {
+                background-color: #f39c12;
+                color: white;
+            }
+            .number {
+                background-color: #2c3e50;
+                color: white;
+            }
+            .clear {
+                background-color: #e74c3c;
+                color: white;
+            }
+            .equal {
+                background-color: #27ae60;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="calculator">
+            <div class="title">CALCULATOR</div>
+            <input type="text" id="result" readonly>
+            <table>
+                <tr>
+                    <td colspan="3"><input type="button" value="C" class="clear" onclick="clr()"></td>
+                    <td><input type="button" value="/" class="operator" onclick="display('/')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="1" class="number" onclick="display('1')"></td>
+                    <td><input type="button" value="2" class="number" onclick="display('2')"></td>
+                    <td><input type="button" value="3" class="number" onclick="display('3')"></td>
+                    <td><input type="button" value="*" class="operator" onclick="display('*')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" class="number" onclick="display('4')"></td>
+                    <td><input type="button" value="5" class="number" onclick="display('5')"></td>
+                    <td><input type="button" value="6" class="number" onclick="display('6')"></td>
+                    <td><input type="button" value="-" class="operator" onclick="display('-')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="7" class="number" onclick="display('7')"></td>
+                    <td><input type="button" value="8" class="number" onclick="display('8')"></td>
+                    <td><input type="button" value="9" class="number" onclick="display('9')"></td>
+                    <td><input type="button" value="+" class="operator" onclick="display('+')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="." class="number" onclick="display('.')"></td>
+                    <td><input type="button" value="0" class="number" onclick="display('0')"></td>
+                    <td colspan="2"><input type="button" value="=" class="equal" onclick="equate()"></td>
+                </tr>
+            </table>
+        </div>
+        <script type="text/javascript">
+            function clr() {
+                document.getElementById("result").value = "";
+            }
+            function display(val) {
+                document.getElementById("result").value += val;
+            }
+            function equate() {
+                let x = document.getElementById("result").value;
+                let y = eval(x);
+                document.getElementById("result").value = y;
+            }
+        </script>
+    </body>
+</html>
